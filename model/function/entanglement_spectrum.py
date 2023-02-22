@@ -1,9 +1,10 @@
 import numpy as np
 from scipy.linalg import *
 import matplotlib.pyplot as plt
-from constant import *
+from function.constant import *
 
-# calculate entanglement spectrum and energy
+# compute entanglement spectrum and energy 
+# if dir = 0(1), compute the cut along x(y)-direction 
 def cal_es(N_en,my_array, dir):
 
     print("calculating entanglement spectrum...")

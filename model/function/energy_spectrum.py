@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-from constant import *
+from function.constant import *
 
 # plot energy spectrum
 def cal_energy(my_model):

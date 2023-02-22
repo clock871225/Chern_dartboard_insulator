@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constant import *
+from function.constant import *
 
-# compute nanoflake energy spectrum and plot corner modes
+# compute nanoflake energy spectrum
+# N_nano is the width of the nanoflake (number of unit cells in x and y direction)
+# return: (list of modes[], energies[], probability distribution of the corner mode[], flake model)
 def cal_corner(my_model, N_corner):
 
     print("calculating nanoflake energy spectrum...")

@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constant import *
+from function.constant import *
 
 # compute Berry phases along k_x for lower band
-
-def cal_Berry_phase(N_en,my_array,dir):
+# if dir = 0(1), compute Berry phases along x(y)-direction
+# n: order of CDI
+def cal_Berry_phase(N_en,my_array, dir, n):
 
     print("calculating Berry phases...")
 
@@ -15,11 +16,16 @@ def cal_Berry_phase(N_en,my_array,dir):
     print("calculating reduced Chern number...")
 
     flux_a_1 = -my_array.berry_flux([0],individual_phases=True)
-    C1 =  0.0
-    for ci in range (N_en):
-        for cj in range (N_en//2):
-            C1 += flux_a_1[ci][cj]
-    print ("reduced Chern number =",C1/2/pi)
+    Cn =  0.0
+    if n == 1:
+        for ci in range (N_en):
+            for cj in range (N_en//2):
+                Cn += flux_a_1[ci][cj]
+    elif n == 2:
+        for ci in range (N_en//2):
+            for cj in range (N_en//2):
+                Cn += flux_a_1[ci][cj]
+    print ("reduced Chern number =",Cn/2/pi)
 
     # plot Berry phases
 

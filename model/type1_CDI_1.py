@@ -57,8 +57,9 @@ my_array=wf_array(my_model, [N_en+1,N_en+1])
 my_array.solve_on_grid([0.0,0.0])
 
 # compute Berry phases (Wilson-loop spectrum)
-# if dir = 0(1), compute Berry phases along x(y)-direction 
-cal_Berry_phase(N_en, my_array, dir = 0)
+# if dir = 0(1), compute Berry phases along x(y)-direction
+# n: order of CDI
+cal_Berry_phase(N_en, my_array, dir = 0, n = 1)
 
 # compute entanglement spectrum and energy 
 # if dir = 0(1), compute the cut along x(y)-direction 
@@ -77,6 +78,7 @@ cal_energy(my_model)
 # (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
 # np.savez("CDI_1_y_edge.npz",k_dist_2,k_node_2,evals_2)
 
+# compute nanoflake energy spectrum
 # N_nano is the width of the nanoflake (number of unit cells in x and y direction)
 # return: (list of modes[], energies[], probability distribution of the corner mode[], flake model)
 (n_list, evals_1, prob, flake_model) = cal_corner(my_model, N_corner = 10)

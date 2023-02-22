@@ -1,8 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constant import *
+from function.constant import *
 
-# calculate nanoribbon band structure
+# compute nanoribbon band structure
+# if dir = 0(1), compute the nanoribbon along x(y)-direction
+# N_nano is the width of the nanoribbon (number of unit cells)
+# return: (list of k[], nodes of k[], band structures[band indices][k])
 def cal_nano(my_model, dir, N_nano):
 
     print("calculating nanoribbon band structure...")
@@ -26,8 +29,8 @@ def cal_nano(my_model, dir, N_nano):
         ax.plot(k_dist_2,evals_2[n],"k-")
 
     # highlight the edge states
-    ax.plot(k_dist_2,evals_2[N_nano+1],"r-")
-    ax.plot(k_dist_2,evals_2[N_nano],"r-")
+    # ax.plot(k_dist_2,evals_2[N_nano+1],"r-")
+    # ax.plot(k_dist_2,evals_2[N_nano],"r-")
 
     ax.set_xlim(k_dist_2[0],k_dist_2[-1])
     #ax.set_ylim(-1.0,1.0)
