@@ -71,6 +71,7 @@ print (C/pi)
 # if dir = 0(1), compute the cut along x(y)-direction 
 cal_es(N_en,my_array,dir = 0) 
 
+
 # cutout ribbon model
 temp_model=my_model.make_supercell([[0,1],[-50,0]],to_home=True)
 ribbon_model=temp_model.cut_piece(1,1,glue_edgs=False)
