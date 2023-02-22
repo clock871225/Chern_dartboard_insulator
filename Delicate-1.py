@@ -51,12 +51,11 @@ my_model.set_hop(-0.5*i*m, 0, 1, [ 0, 1])
 # my_model.set_hop(0.3, 0, 0, [ 1, 0],mode='add')
 # my_model.set_hop(-0.3, 1, 1, [ 1, 0],mode='add')
 
-# generate object of type wf_array that will be used for
-# Berry phase and curvature calculations
-N_en = 64 
+# generate object of type wf_array
+N_en = 64 # number of spacing
 my_array=wf_array(my_model,[N_en+1,N_en+1])
 # solve model on a regular grid, and put origin of
-# Brillouin zone at -1/2 -1/2 point
+# Brillouin zone at (0,0) point
 my_array.solve_on_grid([0.0,0.0])
 
 # Berry phases along k_x for lower band
@@ -67,49 +66,6 @@ for ci in range (N_en):
     for cj in range (N_en//2):
       C += flux_a_1[ci][cj]
 print (C/pi)
-
-a = np.array([i,0])/2.
-b = np.array([0,1])/2.
-wk = np.zeros((N_en+1,N_en,2),dtype=complex)
-
-# compute entanglement spectrum
-
-ex_1=np.arange(N_en//2,N_en)
-p = np.zeros((N_en+1,N_en,N_en),dtype=complex)
-mex = np.zeros((N_en,N_en//2,N_en//2),dtype=complex)
-en_set = np.zeros((N_en+1,N_en))
-
-for j1 in range (N_en):
-  ex_2 = np.exp(-i*2.0*pi/N_en*j1*ex_1)
-  mex[j1]  = np.outer(np.conjugate(ex_2), ex_2)/N_en
-
-Np = 1
-sw = np.zeros((Np*Np,2),dtype=complex)
-r = np.zeros(Np*Np)
-pw = np.zeros(Np*Np)
-for nx in range (Np):
-  for ny in range (Np):
-    wx = np.zeros(2,dtype=complex)
-    for i1 in range (N_en+1):
-      for i2 in range (N_en): 
-        mp0 = np.ndarray.flatten(my_array[i1,i2][0])
-        mp  = np.outer(mp0,np.conjugate(mp0))
-        if nx==0 and ny==0:
-          p_k = np.kron(mex[i2], mp)
-          p[i1] += p_k
-        trial = b + b*np.exp(-i*i2*2*pi/N_en) + a*np.exp(-i*i1*2*pi/N_en) - a*np.exp(-i*(i1+i2)*2*pi/N_en) 
-        S  = np.vdot(trial,np.matmul(mp,trial))
-        wk[i1][i2] = S**(-0.5)*np.matmul(mp,trial)
-        if i1 != N_en:
-          wx += wk[i1][i2]*np.exp(i*(nx*i1+ny*i2)*2*pi/N_en)/(N_en**2)
-      if nx==0 and ny==0:    
-        en_set[i1] = np.sort(np.real(eigvals(p[i1])))
-
-    # sw[Np*nx+ny+4] = wx
-    r[Np*nx+ny] = (nx**2+ny**2)**0.5
-    pw[Np*nx+ny] = np.real(np.vdot(wx,wx))
-
-energy_set = 0.5*np.log(1.0/en_set-1.0)
 
 # compute the entanglement spectrum and energy 
 # if dir = 0(1), compute the cut along x(y)-direction 
@@ -217,36 +173,6 @@ ax.set_ylabel("E",fontsize=25)
 #ax.set_yticklabels((-4.0,-3.0,-2.0,-1.0,0.0,1.0,2.0,3.0,4.0),fontsize=18)
 ax.xaxis.set_ticks(k_node_2)
 ax.set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
-fig.tight_layout()
-
-# plot the entanglement energy
-fig, ax = plt.subplots()
-for n in range(N_en):
-    ax.plot(ex_3,energy_set[:,n],"k-")
-ax.set_xlim(0,2*pi)
-ax.set_ylim(-15,15)
-#ax.set_title("Entanglement Energy",fontsize=25)
-ax.set_xlabel("k",fontsize=25)
-ax.set_ylabel(r'$\epsilon$',fontsize=25)
-ax.xaxis.set_ticks([0,pi,2*pi])
-ax.set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
-#ax.yaxis.set_ticks([-15,-10,-5,0,5,10,15])
-#ax.set_yticklabels((-15,-10,-5,0,5,10,15),fontsize=18)
-fig.tight_layout()
-
-# plot the entanglement spectrum 
-fig, ax = plt.subplots()
-for n in range(N_en):
-    ax.plot(ex_3,en_set[:,n],"k-")
-ax.set_xlim(0,2*pi)
-#ax.set_ylim(-1.0,1.0)
-#ax.set_title("Entanglement Spectrum",fontsize=25)
-ax.set_xlabel("k",fontsize=25)
-ax.set_ylabel(r'$\xi$',fontsize=25)
-ax.xaxis.set_ticks([0,pi,2*pi])
-ax.set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
-#ax.yaxis.set_ticks([0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0])
-#ax.set_yticklabels((0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0),fontsize=18)
 fig.tight_layout()
 
 # plot Berry phases
