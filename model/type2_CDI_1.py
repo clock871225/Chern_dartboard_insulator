@@ -1,12 +1,12 @@
 from pythtb import * # import TB model class
 import numpy as np
 import matplotlib.pyplot as plt
-from constant import *
-from entanglement_spectrum import cal_es
-from Berry_phase import cal_Berry_phase
-from energy_spectrum import cal_energy
-from nanoribbon import cal_nano
-from corner import cal_corner
+from function.constant import *
+from function.entanglement_spectrum import cal_es
+from function.Berry_phase import cal_Berry_phase
+from function.energy_spectrum import cal_energy
+from function.nanoribbon import cal_nano
+from function.corner import cal_corner
 
 # define lattice vectors
 lat=[[1.0,0.0],[0.0,1.0]]
