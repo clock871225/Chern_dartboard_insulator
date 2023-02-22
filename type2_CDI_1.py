@@ -77,12 +77,8 @@ cal_energy(my_model)
 (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
 
 # save files for plotting Fig. 3
-# (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
-# np.savez("CDI_1_y_edge.npz",k_dist_2,k_node_2,evals_2)
-
-# N_nano is the width of the nanoflake (number of unit cells in x and y direction)
-# return: (list of modes[], energies[], probability distribution of the corner mode[], flake model)
-(n_list, evals_1, prob, flake_model) = cal_corner(my_model, N_corner = 10)
+# (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50)
+# np.savez("CDI_1_x_edge.npz",k_dist_2,k_node_2,evals_2)
 
 # x1 = np.linspace(-pi, pi, 21) 
 # y1 = np.linspace(-pi, pi, 21) 
