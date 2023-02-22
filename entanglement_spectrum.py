@@ -1,13 +1,13 @@
 import numpy as np
 from scipy.linalg import *
 import matplotlib.pyplot as plt
-
-# define constants
-pi = np.pi
-i = 1.j
+from constant import *
 
 # calculate entanglement spectrum and energy
 def cal_es(N_en,my_array, dir):
+
+    print("calculating entanglement spectrum...")
+    
     h_list = np.arange(N_en//2,N_en) # define the half list from N_en//2 to N_en
     correlation = np.zeros((N_en+1,N_en,N_en),dtype=complex) # initialize the correlation matrix for each k
     exp_matrix = np.zeros((N_en,N_en//2,N_en//2),dtype=complex) # initalize the exponential matrix for each k 
@@ -32,7 +32,7 @@ def cal_es(N_en,my_array, dir):
 
     energy_set = 0.5*np.log(1.0/es_set-1.0) # compute the entanglement energy
 
-# plot the entanglement spectrum 
+    # plot the entanglement spectrum 
 
     list_k = np.arange(N_en+1)/N_en*2*pi
     fig, ax = plt.subplots()
@@ -49,9 +49,8 @@ def cal_es(N_en,my_array, dir):
     #ax.set_yticklabels((0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0),fontsize=18)
     fig.tight_layout()
 
-# plot the entanglement energy
+    # plot the entanglement energy
 
-    ex_3=np.arange(N_en+1)/N_en*2*pi
     fig, ax = plt.subplots()
     for n in range(N_en):
         ax.plot(list_k,energy_set[:,n],"k-")
@@ -65,6 +64,7 @@ def cal_es(N_en,my_array, dir):
     #ax.yaxis.set_ticks([-15,-10,-5,0,5,10,15])
     #ax.set_yticklabels((-15,-10,-5,0,5,10,15),fontsize=18)
     fig.tight_layout()
+
 
 
 
