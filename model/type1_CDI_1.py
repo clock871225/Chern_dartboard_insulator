@@ -75,7 +75,6 @@ cal_energy(my_model)
 (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
 
 # save files for plotting Fig. 3
-# (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
 # np.savez("CDI_1_y_edge.npz",k_dist_2,k_node_2,evals_2)
 
 # compute nanoflake energy spectrum

@@ -67,11 +67,10 @@ cal_energy(my_model)
 # if dir = 0(1), compute the nanoribbon along x(y)-direction
 # N_nano is the width of the nanoribbon (number of unit cells)
 # return: (list of k[], nodes of k[], band structures[band indices][k])
-(k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 1, N_nano = 50)
+(k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50)
 
 # save files for plotting Fig. 3
-(k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50)
-np.savez("CDI_2_edge.npz",k_dist_2,k_node_2,evals_2)
+# np.savez("CDI_2_edge.npz",k_dist_2,k_node_2,evals_2)
 
 # ax.set_xlim(-1.5,1.5)
 # ax.set_ylim(-1.5,1.5)
