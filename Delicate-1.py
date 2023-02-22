@@ -3,6 +3,7 @@ import numpy as np
 from scipy.linalg import *
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
+from entanglement_spectrum import cal_es
 
 # define lattice vectors
 lat=[[1.0,0.0],[0.0,1.0]]
@@ -52,7 +53,7 @@ my_model.set_hop(-0.5*i*m, 0, 1, [ 0, 1])
 
 # generate object of type wf_array that will be used for
 # Berry phase and curvature calculations
-N_en = 64
+N_en = 64 
 my_array=wf_array(my_model,[N_en+1,N_en+1])
 # solve model on a regular grid, and put origin of
 # Brillouin zone at -1/2 -1/2 point
@@ -109,6 +110,11 @@ for nx in range (Np):
     pw[Np*nx+ny] = np.real(np.vdot(wx,wx))
 
 energy_set = 0.5*np.log(1.0/en_set-1.0)
+
+# compute the entanglement spectrum and energy 
+# if dir = 0(1), compute the cut along x(y)-direction 
+cal_es(N_en,my_array,dir = 0) 
+
 
 # cutout ribbon model
 temp_model=my_model.make_supercell([[0,1],[-50,0]],to_home=True)
