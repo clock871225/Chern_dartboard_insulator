@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from entanglement_spectrum import cal_es
 
+#define constants
+pi=np.pi
+i=1.j
+
 # define lattice vectors
 lat=[[1.0,0.0],[0.0,1.0]]
 # define coordinates of orbitals
@@ -14,8 +18,7 @@ orb=[[0.0,0.0],[0.0,0.0]]
 my_model=tb_model(2,2,lat,orb,nspin=1)
 
 # set model parameters
-pi=np.pi
-i=1.j
+
 m=0.0
 mu=0.0
 t1=0.5
@@ -71,7 +74,6 @@ print (C/pi)
 # if dir = 0(1), compute the cut along x(y)-direction 
 cal_es(N_en,my_array,dir = 0) 
 
-
 # cutout ribbon model
 temp_model=my_model.make_supercell([[0,1],[-50,0]],to_home=True)
 ribbon_model=temp_model.cut_piece(1,1,glue_edgs=False)
@@ -94,6 +96,7 @@ path=[[0.,0.],[0.5,0.0],[0.5,0.5],[0.0,0.5], [0.,0.],[0.5,0.5]]
 # labels of the nodes
 label=(r'$\Gamma $',r'$X$', r'$M$', r'$Y$', r'$\Gamma $',r'$M$')
 (k_vec_3,k_dist_3,k_node_3)=my_model.k_path(path,251,report=False)
+# solve models
 (evals_3,evecs_3)=my_model.solve_all(k_vec_3,eig_vectors=True)
 
 # pick index of state in the middle of the gap
@@ -223,46 +226,6 @@ ax.set_ylim(evals_3[0].min()-0.5,evals_3[1].max()+0.5)
 # ax.yaxis.set_ticks([0.00,0.05,0.10,0.15,0.20,0.25,0.30])
 # ax.set_yticklabels((0.00,0.05,0.10,0.15,0.20,0.25,0.30),fontsize=18)
 fig.tight_layout()
-
-# plot Wannier function
-# fig, ax = plt.subplots()
-# ax.set_title("Wannier Function",fontsize=25)
-# ax.set_xlabel(r"r/a",fontsize=25)
-# ax.set_ylabel(r"$log_{10}(|W(r)|^2)$",fontsize=25)
-# ax.plot(r,pw,'bo',markersize=3)
-# ax.set_xlim(0,31)
-# ax.set_ylim(-31,0)
-# ax.xaxis.set_ticks([0,5,10,15,20,25,30])
-# ax.set_xticklabels((0,5,10,15,20,25,30),fontsize=18)
-# ax.yaxis.set_ticks([0.0,-5.0,-10.0,-15.0,-20.0,-25.0,-30.0])
-# ax.set_yticklabels((0.0,-5.0,-10.0,-15.0,-20.0,-25.0,-30.0),fontsize=18)
-# fig.tight_layout()
-# fig.savefig("fig19.png")
-
-# msigmax=np.array([[0,1],[1,0]],dtype=complex)
-# msigmay=np.array([[0,-i],[i,0]],dtype=complex)
-
-#plot Wannier function
-# fig, ax = plt.subplots()
-# ax.set_title("Wannier Function",fontsize=25)
-# ax.xaxis.set_ticks([-1.,0.,1.])
-# ax.set_xticklabels((r'-a',r'0', r'a'),fontsize=20)
-# ax.yaxis.set_ticks([-1.,0.,1.])
-# ax.set_yticklabels((r'-a',r'0', r'a'),fontsize=20)
-# for nwx in range (-1,2):
-#   for nwy in range (-1,2):
-#     sw0 = np.array([sw[Np*nwx+nwy+4][0],sw[Np*nwx+nwy+4][1]],dtype=complex)
-#     sx = np.real(np.vdot(sw0,np.matmul(msigmax,sw0)))*10
-#     sy = np.real(np.vdot(sw0,np.matmul(msigmay,sw0)))*10
-#     if nwx!=0 or nwy!=0:
-#       ax.arrow(nwx,nwy,sx,sy,width=0.03,head_width=0.1,color='blue')
-#     pw = np.real(np.vdot(sw0,sw0))
-#     ax.plot(nwx,nwy,'ro',markersize=50*(pw**0.5))
-
-# ax.set_xlim(-1.5,1.5)
-# ax.set_ylim(-1.5,1.5)
-# fig.set_size_inches(5, 5)
-# fig.tight_layout()
 
 # x1 = np.linspace(-pi, pi, 21) 
 # y1 = np.linspace(-pi, pi, 21)  
