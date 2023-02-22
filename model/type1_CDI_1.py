@@ -1,9 +1,9 @@
 from pythtb import * # import TB model class
 import numpy as np
 import matplotlib.pyplot as plt
-from constant import *
+from function.constant import *
 from entanglement_spectrum import cal_es
-from Berry_phase import cal_Berry_phase
+from function.Berry_phase import cal_Berry_phase
 from energy_spectrum import cal_energy
 from nanoribbon import cal_nano
 from corner import cal_corner
