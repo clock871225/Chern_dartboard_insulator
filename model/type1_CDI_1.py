@@ -108,29 +108,4 @@ cal_energy(my_model)
 # fig.tight_layout()
 # fig.savefig('corner.pdf')
 
-# x1 = np.linspace(-pi, pi, 21) 
-# y1 = np.linspace(-pi, pi, 21)  
-# X, Y = np.meshgrid(x1, y1)
-# dz = np.cos(Y)
-# dx = np.sin(Y)*np.cos(X)
-# dy = np.sin(Y)*np.sin(X)
-# nor = (dx**2+dy**2+dz**2)**0.5
-# dz = dz/nor
-# dx = dx/nor
-# dy = dy/nor
-
-# fig, ax = plt.subplots() 
-# im = ax.imshow(dz, interpolation ='bilinear', origin ='lower', cmap ="viridis",  extent =(-pi, pi, -pi, pi))
-# ax.xaxis.set_ticks([-pi,0.0,pi])
-# ax.set_xticklabels((r'$-\pi$',r'$0$', r'$\pi$'),fontsize=20)
-# ax.yaxis.set_ticks([-pi,0.0,pi])
-# ax.set_yticklabels((r'$-\pi$',r'$0$', r'$\pi$'),fontsize=20)
-# cbar=fig.colorbar(im,ticks=[-1.0,-0.5,0.0,0.5,1.0],shrink=0.7,aspect=8)
-# cbar.ax.tick_params(labelsize=15)
-# for ia in range (21):
-#   for ja in range (21):
-#     ax.arrow(X[ja][ia],Y[ja][ia],dx[ja][ia]/4.,dy[ja][ia]/4.,width=0.02,head_width=0.1,color='black')
-
-# fig.tight_layout()
-
 plt.show()

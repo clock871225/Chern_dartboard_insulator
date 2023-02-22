@@ -1,7 +1,6 @@
 from re import I
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
 n1=np.load('CDI_1_y_edge.npz')
 k_dist_2_1=n1['arr_0']

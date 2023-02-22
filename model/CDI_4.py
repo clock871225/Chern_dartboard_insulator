@@ -90,30 +90,4 @@ cal_energy(my_model)
 # save files for plotting Fig. 3
 # np.savez("CDI_4_edge.npz",k_dist_2,k_node_2,evals_2)
 
-# x1 = np.linspace(0, pi, 21) 
-# y1 = np.linspace(0, pi, 21)
-# X, Y = np.meshgrid(x1, y1)
-# dz = 3.0+np.cos(2*X)+np.cos(2*Y)+np.cos(4*X)+np.cos(4*Y)+4.0*np.cos(X)*np.cos(Y)
-# dx = -np.sin(X)*np.sin(4*Y)+np.sin(4*X)*np.sin(Y)
-# dy = np.sin(2*X)*np.sin(4*Y)-np.sin(4*X)*np.sin(2*Y)
-# nor = (dx**2+dy**2+dz**2)**0.5
-# dz = dz/nor
-# dx = dx/nor
-# dy = dy/nor
-
-
-# fig, ax = plt.subplots() 
-# im = ax.imshow(dz, interpolation ='bilinear', origin ='lower', cmap ="viridis",  extent =(0, pi, 0, pi))
-# ax.xaxis.set_ticks([-pi,0.0,pi])
-# ax.set_xticklabels((r'$-\pi$',r'$0$', r'$\pi$'),fontsize=20)
-# ax.yaxis.set_ticks([-pi,0.0,pi])
-# ax.set_yticklabels((r'$-\pi$',r'$0$', r'$\pi$'),fontsize=20)
-# cbar=fig.colorbar(im,ticks=[-1.0,-0.5,0.0,0.5,1.0],shrink=0.7,aspect=8)
-# cbar.ax.tick_params(labelsize=15)
-# for ia in range (0,21):
-#   for ja in range (0,21):
-#     ax.arrow(X[ja][ia],Y[ja][ia],dx[ja][ia]/10.,dy[ja][ia]/10.,width=0.01,head_width=0.05,color='black') 
-
-# fig.tight_layout()
-# fig.savefig('n=4-2.png',dpi=300)
 plt.show()
