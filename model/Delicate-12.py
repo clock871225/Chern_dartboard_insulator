@@ -16,64 +16,62 @@ my_model=tb_model(2,2,lat,orb,nspin=1)
 # set model parameters
 pi=np.pi
 i=1.j
-m=1.5
-t1=1.0 
-t3=0.0 
-t5=1.0
-t2=0.0 
-t4=0.0
-t6=0.5
-t7=0.0
-
+m=2.0
+t1=0.0
+t3=1.0
+t5=0.0
+t4=0.5
+t2=0.0
+t6=0.0
+t7=0.5
 
 # set on-site energies
 my_model.set_onsite([m,-m],mode='add')
 
 # set hoppings (one for each connected pair of orbitals)
 # (amplitude, i, j, [lattice vector to cell containing j])
-my_model.set_hop(t1, 0, 0, [ 1, 0])
-my_model.set_hop(-t1, 1, 1, [ 1, 0])
-my_model.set_hop(t1, 0, 0, [ 0, 1])
-my_model.set_hop(-t1, 1, 1, [ 0, 1])
-my_model.set_hop(t1, 0, 0, [ -1, 1])
-my_model.set_hop(-t1, 1, 1, [ -1, 1])
+# my_model.set_hop(t1, 0, 0, [ 1, 0])
+# my_model.set_hop(-t1, 1, 1, [ 1, 0])
+# my_model.set_hop(t1, 0, 0, [ 0, 1])
+# my_model.set_hop(-t1, 1, 1, [ 0, 1])
+# my_model.set_hop(t1, 0, 0, [ -1, 1])
+# my_model.set_hop(-t1, 1, 1, [ -1, 1])
 my_model.set_hop(t3, 0, 0, [ 1, 1])
 my_model.set_hop(-t3, 1, 1, [ 1, 1])
 my_model.set_hop(t3, 0, 0, [ -1, 2])
 my_model.set_hop(-t3, 1, 1, [ -1, 2])
 my_model.set_hop(t3, 0, 0, [ -2, 1])
 my_model.set_hop(-t3, 1, 1, [ -2, 1])
-my_model.set_hop(t5, 0, 0, [ 2, 0])
-my_model.set_hop(-t5, 1, 1, [ 2, 0])
-my_model.set_hop(t5, 0, 0, [ 0, 2])
-my_model.set_hop(-t5, 1, 1, [ 0, 2])
-my_model.set_hop(t5, 0, 0, [ -2, 2])
-my_model.set_hop(-t5, 1, 1, [ -2, 2])
-# my_model.set_hop(t2, 0, 1, [ 1, 0])
-# my_model.set_hop(-t2, 0, 1, [ -1, 0])
-# my_model.set_hop(-t2, 0, 1, [ 0, 1])
-# my_model.set_hop(t2, 0, 1, [ 0, -1])
-# my_model.set_hop(t2, 0, 1, [ -1, 1])
-# my_model.set_hop(-t2, 0, 1, [ 1, -1])
-# my_model.set_hop(t4, 0, 1, [ 2, 0])
-# my_model.set_hop(-t4, 0, 1, [ -2, 0])
-# my_model.set_hop(-t4, 0, 1, [ 0, 2])
-# my_model.set_hop(t4, 0, 1, [ 0, -2])
-# my_model.set_hop(t4, 0, 1, [ -2, 2])
-# my_model.set_hop(-t4, 0, 1, [ 2, -2])
-my_model.set_hop(t6, 0, 1, [ 2, 1])
-my_model.set_hop(-t6, 0, 1, [ 1, 2])
-my_model.set_hop(-t6, 0, 1, [ -3, 1])
-my_model.set_hop(t6, 0, 1, [ -3, 2])
-my_model.set_hop(t6, 0, 1, [ 1, -3])
-my_model.set_hop(-t6, 0, 1, [ 2, -3])
-# my_model.set_hop(t7, 0, 1, [ -1, 3])
-# my_model.set_hop(-t7, 0, 1, [ -2, 3])
-# my_model.set_hop(-t7, 0, 1, [ 3, -1])
-# my_model.set_hop(t7, 0, 1, [ 3, -2])
-# my_model.set_hop(t7, 0, 1, [ -2, -1])
-# my_model.set_hop(-t7, 0, 1, [ -1, -2])
-
+# my_model.set_hop(t5, 0, 0, [ 2, 0])
+# my_model.set_hop(-t5, 1, 1, [ 2, 0])
+# my_model.set_hop(t5, 0, 0, [ 0, 2])
+# my_model.set_hop(-t5, 1, 1, [ 0, 2])
+# my_model.set_hop(t5, 0, 0, [ -2, 2])
+# my_model.set_hop(-t5, 1, 1, [ -2, 2])
+my_model.set_hop(t4, 0, 0, [ 2, 2])
+my_model.set_hop(-t4, 1, 1, [ 2, 2])
+my_model.set_hop(t4, 0, 0, [ -2, 4])
+my_model.set_hop(-t4, 1, 1, [ -2, 4])
+my_model.set_hop(t4, 0, 0, [ -4, 2])
+my_model.set_hop(-t4, 1, 1, [ -4, 2])
+# my_model.set_hop(t2, 0, 1, [ 1, 1])
+# my_model.set_hop(-t2, 0, 1, [ -1, 2])
+# my_model.set_hop(t2, 0, 1, [ -2, 1])
+# my_model.set_hop(-t2, 0, 1, [ -1, -1])
+# my_model.set_hop(t2, 0, 1, [ 1, -2])
+# my_model.set_hop(-t2, 0, 1, [ 2, -1])
+# my_model.set_hop(t6, 0, 1, [ 2, 1])
+# my_model.set_hop(-t6, 0, 1, [ -2, 3])
+# my_model.set_hop(t6, 0, 1, [ -3, 2])
+# my_model.set_hop(-t6, 0, 1, [ -1, -2])
+# my_model.set_hop(t6, 0, 1, [ 1, -3])
+# my_model.set_hop(-t6, 0, 1, [ 3, -1])
+my_model.set_hop(t7, 0, 1, [ 1, 2])
+my_model.set_hop(-t7, 0, 1, [ -1, 3])
+my_model.set_hop(t7, 0, 1, [ -3, 1])
+my_model.set_hop(-t7, 0, 1, [ -2, -1])
+my_model.set_hop(t7, 0, 1, [ 2, -3])
+my_model.set_hop(-t7, 0, 1, [ 3, -2])
 
 # generate object of type wf_array that will be used for
 # Berry phase and curvature calculations
@@ -137,7 +135,7 @@ for nx in range (Np):
 energy_set = 0.5*np.log(1.0/en_set-1.0)
 
 # cutout ribbon model
-temp_model=my_model.make_supercell([[1,0],[0,50]],to_home=True)
+temp_model=my_model.make_supercell([[1,1],[0,50]],to_home=True)
 ribbon_model=temp_model.cut_piece(1,1,glue_edgs=False)
 
 # make the supercell of the model
@@ -151,15 +149,15 @@ flake_model=slab_model.cut_piece(1,0,glue_edgs=False)
 (evals_1,evecs)=flake_model.solve_all(eig_vectors=True)
 (k_vec_2,k_dist_2,k_node_2)=ribbon_model.k_path('full',201,report=False)
 (evals_2,evecs_2)=ribbon_model.solve_all(k_vec_2,eig_vectors=True)
-# print(evecs_2[50][168])
 
 # generate list of k-points following a segmented path in the BZ
 # list of nodes (high-symmetry points) that will be connected
 path=[[0.,0.],[0.,0.5],[1.0/3.,2.0/3.], [0.5,0.5],[0.,0.0]]
 # labels of the nodes
-label=(r'$\Gamma $',r'$M$', r'$K$', r'$M^\prime$', r'$\Gamma $')
+label=(r'$\Gamma $',r'$K$', r'$M$', r'$K^\prime$', r'$\Gamma $')
 (k_vec_3,k_dist_3,k_node_3)=my_model.k_path(path,201,report=False)
 (evals_3,evecs_3)=my_model.solve_all(k_vec_3,eig_vectors=True)
+
 
 # pick index of state in the middle of the gap
 total=flake_model.get_num_orbitals()
@@ -174,7 +172,7 @@ prob=np.multiply(np.conjugate(evecs[ed_n,:]),evecs[ed_n,:])
 
 x=np.arange(total)
 ex_3=np.arange(N_en+1)/N_en*2*pi
- 
+
 # draw the edge state
 (fig,ax)=flake_model.visualize(0,1,eig_dr=0.2/np.amax(prob)*prob,draw_hoppings=False,ph_color='black')
 #ax.set_title("Midgap Corner State",fontsize=25)
@@ -198,107 +196,27 @@ ax.set_ylabel("E",fontsize=25)
 # ax.set_yticklabels([-1.0,-0.5,0.0,0.5,1.0],fontsize=18)
 fig.tight_layout()
 
-
-# n3_1=np.load('n=3-2 edge-2.npz')
-# k_dist_2_3_1=n3_1['arr_0']
-# k_node_2_3_1=n3_1['arr_1']
-# evals_2_3_1=n3_1['arr_2']
-# fig, ax = plt.subplots(1,2,figsize=(12,5),gridspec_kw={'width_ratios': [1, 1]}) 
-
-# for n in range(evals_2.shape[0]):
-#   ax[0].plot(k_dist_2,evals_2[n],"0.5")
-#   ax[1].plot(k_dist_2_3_1,evals_2_3_1[n],"0.5")
-
-# ax[0].plot(k_dist_2[15:32],evals_2[49][15:32],"b-")
-# ax[0].plot(k_dist_2[31:37],evals_2[50][31:37],"b-")
-# ax[0].plot(k_dist_2[57:72],evals_2[51][57:72],"b-")
-# ax[0].plot(k_dist_2[71:79],evals_2[50][71:79],"b-")
-# ax[0].plot(k_dist_2[78:123],evals_2[49][78:123],"b-")
-# ax[0].plot(k_dist_2[122:130],evals_2[50][122:130],"b-")
-# ax[0].plot(k_dist_2[129:144],evals_2[51][129:144],"b-")
-# ax[0].plot(k_dist_2[164:170],evals_2[50][164:170],"b-")
-# ax[0].plot(k_dist_2[169:186],evals_2[49][169:186],"b-")
-# ax[0].plot(k_dist_2[36:52],evals_2[49][36:52],"b-")
-# ax[0].plot(k_dist_2[51:72],evals_2[50][51:72],"b-")
-# ax[0].plot(k_dist_2[71:88],evals_2[51][71:88],"b-")
-# ax[0].plot(k_dist_2[113:130],evals_2[51][113:130],"b-")
-# ax[0].plot(k_dist_2[129:150],evals_2[50][129:150],"b-")
-# ax[0].plot(k_dist_2[149:165],evals_2[49][149:165],"b-")
-
-# ax[0].plot(k_dist_2[15:32],evals_2[50][15:32],"k-")
-# ax[0].plot(k_dist_2[31:37],evals_2[49][31:37],"k-")
-# ax[0].plot(k_dist_2[57:72],evals_2[48][57:72],"k-")
-# ax[0].plot(k_dist_2[71:79],evals_2[49][71:79],"k-")
-# ax[0].plot(k_dist_2[78:123],evals_2[50][78:123],"k-")
-# ax[0].plot(k_dist_2[122:130],evals_2[49][122:130],"k-")
-# ax[0].plot(k_dist_2[129:144],evals_2[48][129:144],"k-")
-# ax[0].plot(k_dist_2[164:170],evals_2[49][164:170],"k-")
-# ax[0].plot(k_dist_2[169:186],evals_2[50][169:186],"k-")
-# ax[0].plot(k_dist_2[36:52],evals_2[50][36:52],"k-")
-# ax[0].plot(k_dist_2[51:72],evals_2[49][51:72],"k-")
-# ax[0].plot(k_dist_2[71:88],evals_2[48][71:88],"k-")
-# ax[0].plot(k_dist_2[113:130],evals_2[48][113:130],"k-")
-# ax[0].plot(k_dist_2[129:150],evals_2[49][129:150],"k-")
-# ax[0].plot(k_dist_2[149:165],evals_2[50][149:165],"k-")
-
-# ax[1].plot(k_dist_2_3_1,evals_2_3_1[48],"r-")
-# ax[1].plot(k_dist_2_3_1,evals_2_3_1[49],"r-")
-# ax[1].plot(k_dist_2_3_1,evals_2_3_1[50],"r-")
-# ax[1].plot(k_dist_2_3_1,evals_2_3_1[51],"r-")
-
-
-# ax[0].set_xlim(k_dist_2[0],k_dist_2[-1])
-# ax[0].set_ylim(-3.5,3.5)
-# ax[0].set_xlabel("k",fontsize=25)
-# ax[0].set_ylabel("E",fontsize=25)
-# ax[0].yaxis.set_ticks([-3,-2,-1,0,1,2,3])
-# ax[0].set_yticklabels((-3.0,-2.0,-1.0,0.0,1.0,2.0,3.0),fontsize=18)
-# ax[0].xaxis.set_ticks(k_node_2)
-# ax[0].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
-
-# ax[1].set_xlim(k_dist_2_3_1[0],k_dist_2_3_1[-1])
-# ax[1].set_ylim(-3.5,3.5)
-# ax[1].set_xlabel("wave vector",fontsize=25)
-# ax[1].set_ylabel("energy",fontsize=25)
-# ax[1].yaxis.set_ticks([-3,-2,-1,0,1,2,3])
-# ax[1].set_yticklabels((-3.0,-2.0,-1.0,0.0,1.0,2.0,3.0),fontsize=18)
-# ax[1].xaxis.set_ticks(k_node_2_3_1)
-# ax[1].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
-
-# ax[0].annotate('a', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=20,fontname='arial',fontfamily='sans-serif',fontweight=600)
-# ax[1].annotate('b', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=20,fontname='arial',fontfamily='sans-serif',fontweight=600)
-
-# fig.tight_layout()
-
-# fig.savefig('n=3-2edge.pdf')
-
 # plot energy spectrum of nanonribbon
 fig, ax = plt.subplots()
 
 for n in range(evals_2.shape[0]):
   ax.plot(k_dist_2,evals_2[n],"k-")
 
-ax.plot(k_dist_2,evals_2[48],"r-")
-ax.plot(k_dist_2,evals_2[49],"r-")
-ax.plot(k_dist_2,evals_2[50],"r-")
-ax.plot(k_dist_2,evals_2[51],"r-")
-# ax.plot(k_dist_2[0:32],evals_2[49][0:32],"b-")
-# ax.plot(k_dist_2[31:37],evals_2[50][31:37],"b-")
-# ax.plot(k_dist_2[36:72],evals_2[51][36:72],"b-")
-# ax.plot(k_dist_2[71:79],evals_2[50][71:79],"b-")
-# ax.plot(k_dist_2[78:101],evals_2[49][78:101],"b-")
-# ax.plot(k_dist_2[100:123],evals_2[49][100:123],"b-")
-# ax.plot(k_dist_2[122:130],evals_2[50][122:130],"b-")
-# ax.plot(k_dist_2[129:165],evals_2[51][129:165],"b-")
-# ax.plot(k_dist_2[164:170],evals_2[50][164:170],"b-")
-# ax.plot(k_dist_2[169:200],evals_2[49][169:200],"b-")
-# ax.plot(k_dist_2[0:37],evals_2[48][0:37],"b-")
-# ax.plot(k_dist_2[36:52],evals_2[49][36:52],"b-")
-# ax.plot(k_dist_2[51:72],evals_2[50][51:72],"b-")
-# ax.plot(k_dist_2[71:130],evals_2[51][71:130],"b-")
-# ax.plot(k_dist_2[129:150],evals_2[50][129:150],"b-")
-# ax.plot(k_dist_2[149:165],evals_2[49][149:165],"b-")
-# ax.plot(k_dist_2[164:200],evals_2[48][164:200],"b-")
+ax.plot(k_dist_2[0:200],evals_2[48][0:200],"r-")
+ax.plot(k_dist_2[0:200],evals_2[49][0:200],"r-")
+ax.plot(k_dist_2[0:200],evals_2[50][0:200],"r-")
+ax.plot(k_dist_2[0:200],evals_2[51][0:200],"r-")
+
+ax.plot(k_dist_2[67:134],evals_2[47][67:134],"k-")
+ax.plot(k_dist_2[48:68],evals_2[49][48:68],"k-")
+ax.plot(k_dist_2[133:153],evals_2[49][133:153],"k-")
+ax.plot(k_dist_2[0:49],evals_2[50][0:49],"k-")
+ax.plot(k_dist_2[152:200],evals_2[50][152:200],"k-")
+ax.plot(k_dist_2[67:134],evals_2[52][67:134],"b-")
+ax.plot(k_dist_2[48:68],evals_2[50][48:68],"b-")
+ax.plot(k_dist_2[133:153],evals_2[50][133:153],"b-")
+ax.plot(k_dist_2[0:49],evals_2[49][0:49],"b-")
+ax.plot(k_dist_2[152:200],evals_2[49][152:200],"b-")
 
 ax.set_xlim(k_dist_2[0],k_dist_2[-1])
 ax.set_ylim(-6.5,6.5)
@@ -308,9 +226,8 @@ ax.set_ylabel("E",fontsize=25)
 ax.yaxis.set_ticks([-6,-4,-2,0,2,4,6])
 ax.set_yticklabels((-6.0,-4.0,-2.0,0.0,2.0,4.0,6.0),fontsize=18)
 ax.xaxis.set_ticks(k_node_2)
-ax.set_xticklabels((r'$0$',r'$\pi/\sqrt{3}$',r'$2\pi/\sqrt{3}$'),fontsize=18)
+ax.set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
 fig.tight_layout()
-
 
 # plot the entanglement energy
 fig, ax = plt.subplots()
@@ -392,18 +309,18 @@ ax.set_ylim(evals_3[0].min()-0.5,evals_3[1].max()+0.5)
 fig.tight_layout()
 
 # plot Wannier function
-# fig, ax = plt.subplots()
-# ax.set_title("Wannier Function",fontsize=25)
-# ax.set_xlabel(r"r/a",fontsize=25)
-# ax.set_ylabel(r"$log_{10}(|W(r)|^2)$",fontsize=25)
-# ax.plot(r,pw,'bo',markersize=3)
+fig, ax = plt.subplots()
+ax.set_title("Wannier Function",fontsize=25)
+ax.set_xlabel(r"r/a",fontsize=25)
+ax.set_ylabel(r"$log_{10}(|W(r)|^2)$",fontsize=25)
+ax.plot(r,pw,'bo',markersize=3)
 # ax.set_xlim(0,31)
 # ax.set_ylim(-31,0)
 # ax.xaxis.set_ticks([0,5,10,15,20,25,30])
 # ax.set_xticklabels((0,5,10,15,20,25,30),fontsize=18)
 # ax.yaxis.set_ticks([0.0,-5.0,-10.0,-15.0,-20.0,-25.0,-30.0])
 # ax.set_yticklabels((0.0,-5.0,-10.0,-15.0,-20.0,-25.0,-30.0),fontsize=18)
-# fig.tight_layout()
+fig.tight_layout()
 # fig.savefig("fig19.png")
 
 # msigmax=np.array([[0,1],[1,0]],dtype=complex)
@@ -427,36 +344,35 @@ fig.tight_layout()
 #     ax.plot(nwx,nwy,'ro',markersize=50*(pw**0.5))
 
 # ax.set_xlim(-1.5,1.5)
-ax.set_ylim(-1.5,1.5)
-fig.set_size_inches(5, 5)
-fig.tight_layout()
+# ax.set_ylim(-1.5,1.5)
+# fig.set_size_inches(5, 5)
+# fig.tight_layout()
 
-x1 = np.linspace(0, 2*pi, 21) 
-y1 = np.linspace(0, 6*pi/(3.**0.5), 31) 
-X, Y = np.meshgrid(x1, y1)
+# x1 = np.linspace(-4*pi/3, 4*pi/3, 25) 
+# y1 = np.linspace(-2*pi/(3.**0.5), 2*pi/(3.**0.5), 21) 
+# X, Y = np.meshgrid(x1, y1)
 
-dz = 2.0*(np.cos(2*X)+np.cos((3**0.5)*Y+X)+np.cos((3**0.5)*Y-X))\
-    -0.0*(np.cos(1.5*X+0.5*(3**0.5)*Y)-np.cos(-1.5*X+0.5*(3**0.5)*Y)-np.cos((3**0.5)*Y))\
-    +2.0*(np.cos(X)+np.cos(0.5*(3**0.5)*Y+0.5*X)+np.cos(0.5*(3**0.5)*Y-0.5*X))+1.5
-dx = np.sin(2.5*X)*np.sin(0.5*(3**0.5)*Y)-np.sin(2.0*X)*np.sin((3**0.5)*Y)+np.sin(0.5*X)*np.sin(1.5*(3**0.5)*Y)
-dy = np.sin(2.5*X)*np.cos(0.5*(3**0.5)*Y)-np.sin(2.0*X)*np.cos((3**0.5)*Y)-np.sin(0.5*X)*np.cos(1.5*(3**0.5)*Y)
-nor = (dx**2+dy**2+dz**2)**0.5
-dz = dz/nor
-dx = dx/nor
-dy = dy/nor
+# dz = 2.0*(np.cos(1.5*X+0.5*(3**0.5)*Y)+np.cos(-1.5*X+0.5*(3**0.5)*Y)+np.cos((3**0.5)*Y))\
+#     +np.cos(3.0*X+(3**0.5)*Y)+np.cos(-3.0*X+(3**0.5)*Y)+np.cos(2.0*(3**0.5)*Y)+2.0
+# dx = np.sin(2.5*X)*np.sin(0.5*(3**0.5)*Y)-np.sin(2.0*X)*np.sin((3**0.5)*Y)+np.sin(0.5*X)*np.sin(1.5*(3**0.5)*Y)
+# dy = -np.cos(2.5*X)*np.sin(0.5*(3**0.5)*Y)-np.cos(2.0*X)*np.sin((3**0.5)*Y)+np.cos(0.5*X)*np.sin(1.5*(3**0.5)*Y)
+# nor = (dx**2+dy**2+dz**2)**0.5
+# dz = dz/nor
+# dx = dx/nor
+# dy = dy/nor
 
-fig, ax = plt.subplots() 
-im = ax.imshow(dz, interpolation ='bilinear', origin ='lower', cmap ="viridis",  extent =(0, 2*pi, 0, 6*pi/(3.**0.5)))
-ax.xaxis.set_ticks([0.0,pi,2*pi])
-ax.set_xticklabels((r'$0$', r'$\pi$', r'$2\pi$'),fontsize=20)
-ax.yaxis.set_ticks([0.0,2*pi/np.sqrt(3),4*pi/np.sqrt(3),6*pi/np.sqrt(3)])
-ax.set_yticklabels((r'$0$', r'$2\pi/\sqrt{3}$',r'$4\pi/\sqrt{3}$',r'$6\pi/\sqrt{3}$'),fontsize=20)
-cbar=fig.colorbar(im,ticks=[-1.0,-0.5,0.0,0.5,1.0],shrink=0.7,aspect=8)
-cbar.ax.tick_params(labelsize=15)
-for ia in range (21):
-  for ja in range (31):
-    ax.arrow(X[ja][ia],Y[ja][ia],dx[ja][ia]/4.,dy[ja][ia]/4.,width=0.016,head_width=0.09,color='black')
+# fig, ax = plt.subplots() 
+# im = ax.imshow(dz, interpolation ='bilinear', origin ='lower', cmap ="viridis",  extent =(-4*pi/3, 4*pi/3, -2*pi/(3.**0.5), 2*pi/(3.**0.5)))
+# ax.xaxis.set_ticks([-4*pi/3,0.0,4*pi/3])
+# ax.set_xticklabels((r'$-4\pi/3$',r'$0$', r'$4\pi/3$'),fontsize=20)
+# ax.yaxis.set_ticks([-2*pi/np.sqrt(3),0.0,2*pi/np.sqrt(3)])
+# ax.set_yticklabels((r'$-2\pi/\sqrt{3}$',r'$0$', r'$2\pi/\sqrt{3}$'),fontsize=20)
+# cbar=fig.colorbar(im,ticks=[-1.0,-0.5,0.0,0.5,1.0],shrink=0.7,aspect=8)
+# cbar.ax.tick_params(labelsize=15)
+# for ia in range (25):
+#   for ja in range (21):
+#     ax.arrow(X[ja][ia],Y[ja][ia],dx[ja][ia]/4.,dy[ja][ia]/4.,width=0.02,head_width=0.1,color='black')
 
-fig.tight_layout()
-fig.savefig('n=1(3).pdf')
+# fig.tight_layout()
+# fig.savefig('n=3.png',dpi=300)
 plt.show()

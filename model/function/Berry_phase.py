@@ -29,6 +29,11 @@ def cal_Berry_phase(N_en,my_array, dir, n):
         for cj in range (N_en//2):
             for ci in range (cj):
                 Cn += flux_a_1[ci][cj]
+    else :
+        for cj in range (N_en):
+            for ci in range (N_en-cj):
+                Cn += flux_a_1[ci][cj+ci]
+        Cn = Cn/3
     print ("reduced Chern number =",Cn/2/pi)
 
     # plot Berry phases

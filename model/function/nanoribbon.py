@@ -6,15 +6,20 @@ from function.constant import *
 # if dir = 0(1), compute the nanoribbon along x(y)-direction
 # N_nano is the width of the nanoribbon (number of unit cells)
 # return: (list of k[], nodes of k[], band structures[band indices][k])
-def cal_nano(my_model, dir, N_nano):
+# n: order of CDI
+def cal_nano(my_model, dir, N_nano, n):
 
     print("calculating nanoribbon band structure...")
 
     # cutout ribbon model
-    if dir == 0:
+    if dir == 0 and n != 3:
         temp_model = my_model.make_supercell([[1,0],[0,N_nano]],to_home=True)
-    else:
+    elif dir == 0 and n != 3:
         temp_model = my_model.make_supercell([[0,1],[-N_nano,0]],to_home=True)
+    elif dir == 0 and n == 3:
+        temp_model = my_model.make_supercell([[1,0],[0,N_nano]],to_home=True)
+    elif dir == 1 and n == 3:
+        temp_model = my_model.make_supercell([[1,1],[0,N_nano]],to_home=True)
     
     ribbon_model = temp_model.cut_piece(1,1,glue_edgs=False)
 
