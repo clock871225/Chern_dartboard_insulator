@@ -88,7 +88,7 @@ cal_energy(my_model)
 (k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50)
 
 # save files for plotting Fig. 3
-np.savez("CDI_4_edge.npz",k_dist_2,k_node_2,evals_2)
+# np.savez("CDI_4_edge.npz",k_dist_2,k_node_2,evals_2)
 
 # x1 = np.linspace(0, pi, 21) 
 # y1 = np.linspace(0, pi, 21)
