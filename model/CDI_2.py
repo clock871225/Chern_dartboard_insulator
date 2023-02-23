@@ -2,6 +2,8 @@ from re import I
 from pythtb import * # import TB model class
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+sys.path.append('../')
 from function.constant import *
 from function.entanglement_spectrum import cal_es
 from function.Berry_phase import cal_Berry_phase
@@ -67,6 +69,6 @@ cal_energy(my_model)
 # if dir = 0(1), compute the nanoribbon along x(y)-direction
 # N_nano is the width of the nanoribbon (number of unit cells)
 # return: (list of k[], nodes of k[], band structures[band indices][k])
-(k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50)
+(k_dist_2,k_node_2,evals_2) = cal_nano(my_model, dir = 0, N_nano = 50, n = 2)
 
 plt.show()

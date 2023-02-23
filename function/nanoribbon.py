@@ -14,7 +14,7 @@ def cal_nano(my_model, dir, N_nano, n):
     # cutout ribbon model
     if dir == 0 and n != 3:
         temp_model = my_model.make_supercell([[1,0],[0,N_nano]],to_home=True)
-    elif dir == 0 and n != 3:
+    elif dir == 1 and n != 3:
         temp_model = my_model.make_supercell([[0,1],[-N_nano,0]],to_home=True)
     elif dir == 0 and n == 3:
         temp_model = my_model.make_supercell([[1,0],[0,N_nano]],to_home=True)

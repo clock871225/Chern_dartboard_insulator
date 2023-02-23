@@ -2,37 +2,42 @@ from re import I
 import numpy as np
 import matplotlib.pyplot as plt
 
-n1=np.load('CDI_1_y_edge.npz')
+# plot nanoribbon band structures for all the CDIs (Fig. 3)
+# load the data files
+
+n1=np.load('../data/CDI_1_y_edge.npz')
 k_dist_2_1=n1['arr_0']
 k_node_2_1=n1['arr_1']
 evals_2_1=n1['arr_2']
 
-n1_2=np.load('CDI_1_x_edge.npz')
+n1_2=np.load('../data/CDI_1_x_edge.npz')
 k_dist_2_1_2=n1_2['arr_0']
 k_node_2_1_2=n1_2['arr_1']
 evals_2_1_2=n1_2['arr_2']
 
-n2=np.load('CDI_2_edge.npz')
+n2=np.load('../data/CDI_2_edge.npz')
 k_dist_2_2=n2['arr_0']
 k_node_2_2=n2['arr_1']
 evals_2_2=n2['arr_2']
 
-n4=np.load('CDI_4_edge.npz')
+n4=np.load('../data/CDI_4_edge.npz')
 k_dist_2_4=n4['arr_0']
 k_node_2_4=n4['arr_1']
 evals_2_4=n4['arr_2']
 
-n3_1=np.load('type1_CDI_3_y_edge.npz')
+n3_1=np.load('../data/type1_CDI_3_y_edge.npz')
 k_dist_2_3_1=n3_1['arr_0']
 k_node_2_3_1=n3_1['arr_1']
 evals_2_3_1=n3_1['arr_2']
 
-n3_2=np.load('type1_CDI_3_x_edge.npz')
+n3_2=np.load('../data/type1_CDI_3_x_edge.npz')
 k_dist_2_3_2=n3_2['arr_0']
 k_node_2_3_2=n3_2['arr_1']
 evals_2_3_2=n3_2['arr_2']
 
 fig, ax = plt.subplots(3,2,figsize=(8,10)) 
+
+# plot the band structures
 
 for n in range(evals_2_2.shape[0]):
   ax[0][0].plot(k_dist_2_1,evals_2_1[n],"0.5")
@@ -41,6 +46,8 @@ for n in range(evals_2_2.shape[0]):
   ax[1][1].plot(k_dist_2_4,evals_2_4[n],"0.5")
   ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[n],"0.5")
   ax[2][1].plot(k_dist_2_3_2,evals_2_3_2[n],"0.5")
+
+# highlight the gapless edge states with colors
 
 ax[0][0].plot(k_dist_2_1[0:51],evals_2_1[49][0:51],"k-")
 ax[0][0].plot(k_dist_2_1[50:151],evals_2_1[50][50:151],"k-")
@@ -196,6 +203,8 @@ ax[2][1].set_yticklabels((-4.0,-2.0,0.0,2.0,4.0),fontsize=18)
 ax[2][1].xaxis.set_ticks(k_node_2_3_2)
 ax[2][1].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
 
+# labels
+
 ax[0][0].annotate('a', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=16,fontname='arial',fontfamily='sans-serif',fontweight=600)
 ax[0][1].annotate('b', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=16,fontname='arial',fontfamily='sans-serif',fontweight=600)
 ax[1][0].annotate('c', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=16,fontname='arial',fontfamily='sans-serif',fontweight=600)
@@ -205,4 +214,4 @@ ax[2][1].annotate('f', xy=(-0.1, 1.1), xycoords='axes fraction', fontsize=16,fon
 
 fig.tight_layout()
 
-fig.savefig('edge-1.pdf')
+fig.savefig('edge.pdf')

@@ -2,6 +2,8 @@ from re import I
 from pythtb import * # import TB model class
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+sys.path.append('../')
 from function.constant import *
 from function.entanglement_spectrum import cal_es
 from function.Berry_phase import cal_Berry_phase
