@@ -44,8 +44,8 @@ for n in range(evals_2_2.shape[0]):
   ax[0][1].plot(k_dist_2_1_2,evals_2_1_2[n],"0.5")
   ax[1][0].plot(k_dist_2_2,evals_2_2[n],"0.5")
   ax[1][1].plot(k_dist_2_4,evals_2_4[n],"0.5")
-  ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[n],"0.5")
-  ax[2][1].plot(k_dist_2_3_2,evals_2_3_2[n],"0.5")
+  ax[2][1].plot(k_dist_2_3_1,evals_2_3_1[n],"0.5")
+  ax[2][0].plot(k_dist_2_3_2,evals_2_3_2[n],"0.5")
 
 # highlight the gapless edge states with colors
 
@@ -191,31 +191,31 @@ ax[1][1].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
 # ax[2][0].xaxis.set_ticks(k_node_2_3_1)
 # ax[2][0].set_xticklabels((r'$0$',r'$\pi/\sqrt{3}$',r'$2\pi/\sqrt{3}$'),fontsize=18)
 
-ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[48],"r-")
-ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[51],"r-")
-ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[49],"r-")
-ax[2][0].plot(k_dist_2_3_1,evals_2_3_1[50],"r-")
+ax[2][1].plot(k_dist_2_3_1,evals_2_3_1[48],"r-")
+ax[2][1].plot(k_dist_2_3_1,evals_2_3_1[51],"r-")
+ax[2][1].plot(k_dist_2_3_1,evals_2_3_1[49],"r-")
+ax[2][1].plot(k_dist_2_3_1,evals_2_3_1[50],"r-")
 
-ax[2][0].set_xlim(k_dist_2_3_1[0],k_dist_2_3_1[-1])
-ax[2][0].set_ylim(-2.5,2.5)
-ax[2][0].set_xlabel(r'$k_y$',fontsize=25)
-ax[2][0].set_ylabel("E",fontsize=25)
-ax[2][0].yaxis.set_ticks([-2,-1,0,1,2])
-ax[2][0].set_yticklabels((-2.0,-1.0,0.0,1.0,2.0),fontsize=18)
-ax[2][0].xaxis.set_ticks(k_node_2_3_1)
-ax[2][0].set_xticklabels((r'$0$',r'$\pi/\sqrt{3}$',r'$2\pi/\sqrt{3}$'),fontsize=18)
-
-ax[2][1].plot(k_dist_2_3_2,evals_2_3_2[49],"r-")
-ax[2][1].plot(k_dist_2_3_2,evals_2_3_2[50],"r-")
-
-ax[2][1].set_xlim(k_dist_2_3_2[0],k_dist_2_3_2[-1])
-ax[2][1].set_ylim(-4.5,4.5)
-ax[2][1].set_xlabel(r'$k_x$',fontsize=25)
+ax[2][1].set_xlim(k_dist_2_3_1[0],k_dist_2_3_1[-1])
+ax[2][1].set_ylim(-2.5,2.5)
+ax[2][1].set_xlabel(r'$k_y$',fontsize=25)
 ax[2][1].set_ylabel("E",fontsize=25)
-ax[2][1].yaxis.set_ticks([-4,-2,0,2,4])
-ax[2][1].set_yticklabels((-4.0,-2.0,0.0,2.0,4.0),fontsize=18)
-ax[2][1].xaxis.set_ticks(k_node_2_3_2)
-ax[2][1].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
+ax[2][1].yaxis.set_ticks([-2,-1,0,1,2])
+ax[2][1].set_yticklabels((-2.0,-1.0,0.0,1.0,2.0),fontsize=18)
+ax[2][1].xaxis.set_ticks(k_node_2_3_1)
+ax[2][1].set_xticklabels((r'$0$',r'$\pi/\sqrt{3}$',r'$2\pi/\sqrt{3}$'),fontsize=18)
+
+ax[2][0].plot(k_dist_2_3_2,evals_2_3_2[49],"r-")
+ax[2][0].plot(k_dist_2_3_2,evals_2_3_2[50],"r-")
+
+ax[2][0].set_xlim(k_dist_2_3_2[0],k_dist_2_3_2[-1])
+ax[2][0].set_ylim(-4.5,4.5)
+ax[2][0].set_xlabel(r'$k_x$',fontsize=25)
+ax[2][0].set_ylabel("E",fontsize=25)
+ax[2][0].yaxis.set_ticks([-4,-2,0,2,4])
+ax[2][0].set_yticklabels((-4.0,-2.0,0.0,2.0,4.0),fontsize=18)
+ax[2][0].xaxis.set_ticks(k_node_2_3_2)
+ax[2][0].set_xticklabels((r'$0$',r'$\pi$',r'$2\pi$'),fontsize=18)
 
 # labels
 
